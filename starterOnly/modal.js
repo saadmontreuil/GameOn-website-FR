@@ -122,3 +122,20 @@ const checkboxChecker = () => {
   }
   return isValid;
 };
+
+
+function birthdayValidation(value) {
+  let isValid = false;
+  var today = new Date();
+  var birthDate = new Date(value);
+  var age = today.getFullYear() - birthDate.getFullYear();
+  
+
+  if (age < 13 || age > 120) {
+    errorDisplay.textContent = "Veuillez entrer une date de naissance valide.";
+  } else {
+    errorDisplay.textContent = "";
+    isValid = true;
+  }
+  return isValid;
+}
