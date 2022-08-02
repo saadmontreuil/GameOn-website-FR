@@ -27,6 +27,9 @@ const closeModal=()=> {
 
 
 const nameChecker = (value,mesaage) => {
+
+  const firstContainer = document.querySelector(".first-container");
+  const errorDisplay = document.querySelector(".first > span");
   let isValid = false;
 
   if (value.length < 2) {
@@ -43,6 +46,8 @@ const nameChecker = (value,mesaage) => {
  * function email
  */
 const emailChecker = (value) => {
+  const emailContainer = document.querySelector(".email");
+  const errorDisplay = document.querySelector(".email > span");
   let isValid = false;
 
   if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
@@ -57,22 +62,31 @@ const emailChecker = (value) => {
 /**
  * function birthdate
  */
-const birthdateChecker = (value) => {
+ function birthdateChecker(value) {
+  const birthdateContainer = document.querySelector(".birthdate");
+  const errorDisplay = document.querySelector(".birthdate > span");
   let isValid = false;
+  
+  var today = new Date();
+  var birthDate = new Date(value);
+  var age = today.getFullYear() - birthDate.getFullYear();
+  
 
-  if (!value) {
-    errorDisplay.textContent = "Veuillez entrer une date de naissance.";
+  if (age < 13 || age > 120) {
+    errorDisplay.textContent = "Veuillez entrer une date de naissance valide.";
   } else {
     errorDisplay.textContent = "";
     isValid = true;
   }
   return isValid;
-};
+}
 
 /**
  * function quantity
  */
 const quantityChecker = (value) => {
+  const quantityContainer = document.querySelector(".quantityr");
+  const errorDisplay = document.querySelector(".quantity > span");
   let isValid = false;
 
   if (!value) {
@@ -87,6 +101,7 @@ const quantityChecker = (value) => {
 /**
  * function checkbox */
 const checkboxContainer = () => {
+  const errorDisplay = document.querySelector(".formData > small");
   const radios = document.querySelectorAll('input[name = "location"]');
   isValid = false;
 
@@ -109,6 +124,7 @@ const checkboxContainer = () => {
  * @returns
  */
 const checkboxChecker = () => {
+  const errorDisplay = document.querySelector(".formData > div");
   const check = document.querySelector(".checkbox1");
   const checkbox1 = document.querySelector("#checkbox1");
   let isValid = false;
@@ -124,18 +140,3 @@ const checkboxChecker = () => {
 };
 
 
-function birthdayValidation(value) {
-  let isValid = false;
-  var today = new Date();
-  var birthDate = new Date(value);
-  var age = today.getFullYear() - birthDate.getFullYear();
-  
-
-  if (age < 13 || age > 120) {
-    errorDisplay.textContent = "Veuillez entrer une date de naissance valide.";
-  } else {
-    errorDisplay.textContent = "";
-    isValid = true;
-  }
-  return isValid;
-}
