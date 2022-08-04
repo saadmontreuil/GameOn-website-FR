@@ -1,3 +1,13 @@
+function editNav() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
@@ -33,6 +43,7 @@ const nameChecker = (value,mesaage) => {
   let isValid = false;
 
   if (value.length < 2) {
+    firstContainer.classList.add("error");
     errorDisplay.textContent = mesaage;
   } else {
     errorDisplay.textContent = "";
@@ -45,12 +56,13 @@ const nameChecker = (value,mesaage) => {
 /**
  * function email
  */
-const emailChecker = (value) => {
-  const emailContainer = document.querySelector(".email");
-  const errorDisplay = document.querySelector(".email > span");
+ const emailChecker = (value) => {
+  const emailContainer = document.querySelector(".email-container");
+  const errorDisplay = document.querySelector(".email-container > span");
   let isValid = false;
 
   if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
+    emailContainer.classList.add("error");
     errorDisplay.textContent = "Veuillez entrer une adresse mail valide.";
   } else {
     errorDisplay.textContent = "";
@@ -73,6 +85,7 @@ const emailChecker = (value) => {
   
 
   if (age < 13 || age > 120) {
+    quantityContainer.classList.add("error");
     errorDisplay.textContent = "Veuillez entrer une date de naissance valide.";
   } else {
     errorDisplay.textContent = "";
@@ -130,6 +143,7 @@ const checkboxChecker = () => {
   let isValid = false;
 
   if (!checkbox1.checked) {
+    check.classList.add("error");
     errorDisplay.textContent =
       "Vous devez vérifier que vous acceptez les termes et conditions.";
   } else {
