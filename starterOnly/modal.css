@@ -644,3 +644,28 @@ img {
       font-size: 0.5rem;
     }
   }
+
+  .formConfirmation{
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: normal;
+    height: 700px;
+    padding-top: 200px;
+    display: none;
+    margin-top: 150px;
+  }
+  
+  .btn-submit-confirm{
+    background: #fe142f;
+    display: block;
+    margin: 0 auto;
+    margin-top: 330px;
+    border-radius: 7px;
+    font-size: 1rem;
+    padding: 12px 82px;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+  }

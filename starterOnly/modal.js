@@ -117,9 +117,9 @@ const nameChecker = (value,mesaage,inp) => {
   var age = today.getFullYear() - birthDate.getFullYear();
   
 
-  if (age < 13 || age > 120) {
+  if (age < 13 || age > 120 || !value) {
     birthdateContainer.classList.add("error");
-    errorDisplay.textContent = "Veuillez entrer une date de naissance valide.";
+    errorDisplay.textContent = "Vous devez entrer votre date de naissance.";
   } else {
     errorDisplay.textContent = "";
     isValid = true;
@@ -132,7 +132,7 @@ const nameChecker = (value,mesaage,inp) => {
  */
 const quantityChecker = (value) => {
 
-  const quantityContainer = document.querySelector(".quantityr");
+  const quantityContainer = document.querySelector(".quantity");
   const errorDisplay = document.querySelector(".quantity > span");
   let isValid = false;
 
@@ -149,7 +149,7 @@ const quantityChecker = (value) => {
 /**
  * function checkbox */
 const checkboxContainer = () => {
-  const errorDisplay = document.querySelector(".formData > small");
+  const errorDisplay = document.querySelector("small");
   const radios = document.querySelectorAll('input[name = "location"]');
   isValid = false;
 
@@ -159,7 +159,7 @@ const checkboxContainer = () => {
       errorDisplay.textContent = "";
       break;
     } else {
-      errorDisplay.textContent = "Veuillez sélectionner un choix.";
+      errorDisplay.textContent = "Vous devez choisir une option.";
       errorDisplay.style.color = "red";
       errorDisplay.style.fontSize = "0.6em";
     }
@@ -222,8 +222,8 @@ const checkboxChecker = () => {
 
     let validInputs = [];
 
-    validInputs.push(nameChecker(values[0], "Veuillez entrer un nom valide.", "first"));
-    validInputs.push(nameChecker(values[1], "Veuillez entrer un prénom valide.", "last"));
+    validInputs.push(nameChecker(values[0], "Veuillez entrer 2 caractères ou plus pour le champ du nom.", "first"));
+    validInputs.push(nameChecker(values[1], "Veuillez entrer 2 caractères ou plus pour le champ du prénom.", "last"));
     validInputs.push(emailChecker(values[2]));
     validInputs.push(birthdateChecker(values[3]));
     validInputs.push(quantityChecker(values[4]));
