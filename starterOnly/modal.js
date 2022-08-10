@@ -289,7 +289,6 @@ const btnSubmitConfirm = document.querySelector(".btn-submit-confirm");
  * Fonction pour ouvrir la modale de confirmation d'inscription
  */
 function launchModalConfirmation() {
-  modalConfirmation.style.display = "block";
   spanValidModal.innerHTML = "Merci pour <br> votre inscription";
 }
 
