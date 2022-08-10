@@ -1,3 +1,7 @@
+/**
+ * Fonction du navbar
+ */
+
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -19,26 +23,36 @@ modalBtn.forEach((btn) => btn.addEventListener("click",()=> launchModal()));
 
 closeBtn.forEach((btn) => btn.addEventListener("click",()=> closeModal()));
 
-// launch modal form
+/**
+ * Fonction pour ouvrir la modale
+ */
 const launchModal=()=> {
   modalbg.style.display = "block";
 }
+/**
+ * Fonction pour fermer la modale
+ */
 
-// Close modal form
 const closeModal=()=> {
   modalbg.style.display = "none";
 }
 
 
 const form = document.querySelector("form");
-
+/**
+ * Bouton de soumission du formulaire "c'est parti"
+ */
 const submitInput = form[form.length - 1];
-
+/**
+ *  les inputs par leur id
+ */
 const inputs = document.querySelectorAll(
   "#first, #last, #email, #birthdate, #quantity, input[name=location] , #checkbox1 "
 );
 
-
+/**
+ * Fonction qui permet d'évoluer dans chacun des inputs
+ */
 inputs.forEach((input) => {
   input.addEventListener("input", (e) => {
     switch (e.target.id) {
@@ -67,7 +81,9 @@ inputs.forEach((input) => {
 
 
 
-
+/**
+ * function pour vérifier si le nom et prenom sont valides
+ */
 
 const nameChecker = (value,mesaage,inp) => {
 
@@ -87,7 +103,7 @@ const nameChecker = (value,mesaage,inp) => {
 
 
 /**
- * function email
+ * function pour vérifier si le email est valide
  */
  const emailChecker = (value) => {
   const emailContainer = document.querySelector(".email");
@@ -105,7 +121,7 @@ const nameChecker = (value,mesaage,inp) => {
 };
 
 /**
- * function birthdate
+ * function pour vérifier si la date de naissance est valide
  */
  function birthdateChecker(value) {
   const birthdateContainer = document.querySelector(".birthdate");
@@ -128,7 +144,7 @@ const nameChecker = (value,mesaage,inp) => {
 }
 
 /**
- * function quantity
+ * function pour vérifier si le nombre de tournois est valide
  */
 const quantityChecker = (value) => {
 
@@ -147,7 +163,8 @@ const quantityChecker = (value) => {
 };
 
 /**
- * function checkbox */
+ * function pour vérifier si un option est selectionné
+ */
 const checkboxContainer = () => {
   const errorDisplay = document.querySelector("small");
   const radios = document.querySelectorAll('input[name = "location"]');
@@ -168,8 +185,7 @@ const checkboxContainer = () => {
 };
 
 /**
- * function checkbox cgv
- * @returns
+ * function pour vérifier si le button est selectionné
  */
 const checkboxChecker = () => {
   const errorDisplay = document.querySelector(".formData > div");
@@ -189,10 +205,15 @@ const checkboxChecker = () => {
 };
 
 
+/**
+ * Vérifier les inputs du formulaire avant sa soumission
+ */
  const onSubmit = (e) => {
   e.preventDefault();
 
-
+  /**
+   * Récupérer les valeurs des inputs du formulaire
+   */
   const formValues = (inputs) => {
     let data = [];
 
@@ -217,9 +238,14 @@ const checkboxChecker = () => {
     }
     return data;
   };
-
+  /**
+   * Vérifie la valeur de chacun des inputs
+   */
   const formIsValid = (values) => {
 
+  /**
+  * Teste la validité de chaque input
+  */
     let validInputs = [];
 
     validInputs.push(nameChecker(values[0], "Veuillez entrer 2 caractères ou plus pour le champ du nom.", "first"));
@@ -259,7 +285,9 @@ const modalConfirmation = document.querySelector(".formConfirmation");
 const spanValidModal = document.querySelector(".formConfirmation > span");
 const btnSubmitConfirm = document.querySelector(".btn-submit-confirm");
  
-
+/**
+ * Fonction pour ouvrir la modale de confirmation d'inscription
+ */
 function launchModalConfirmation() {
   modalConfirmation.style.display = "block";
   spanValidModal.innerHTML = "Merci pour <br> votre inscription";
@@ -267,7 +295,9 @@ function launchModalConfirmation() {
 
 btnSubmit.addEventListener("click", launchModalConfirmation);
 
-
+/**
+ * Fonction pour fermer la modale de confirmation d'inscription
+ */
 function closeModalConfirmation() {
   modalbg.style.display = "none";
   window.location.reload();
