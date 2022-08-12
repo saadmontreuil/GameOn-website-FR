@@ -152,7 +152,7 @@ const quantityChecker = (value) => {
   const errorDisplay = document.querySelector(".quantity > span");
   let isValid = false;
 
-  if (!value) {
+  if (!value || isNaN(value) || value < 1 || value > 30) {
     quantityContainer.classList.add("error");
     errorDisplay.textContent = "Veuillez entrer un chiffre.";
   } else {
